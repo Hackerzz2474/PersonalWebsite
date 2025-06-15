@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>My Personal Website</title>
+	<link rel="icon" type="image/png" href="img/icon.png">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/bgm.js"></script>
+
+</head>
+
+<body>
+<div id="splash" onclick="start()"><h3 style="text-align: center;">Welcome to My Story Book Website!! <br> (Click Here)</h3></div>
+<audio id="bgm" src="audio/End.mp3" loop></audio>
+<h1 style="text-align: center;">Resume Website</h1>
+
+<div class="nav-buttons">
+  <button onclick="goToCover()">📖 Go to Front Cover</button>
+  <button onclick="goToBackCover()">📘 Go to Back Cover</button>
+</div>
+
+<div class="flipbook">
+
+	<div class="hard cover-page" style="border: 2px black solid;
+	border-radius: 18px;">
+		<img src="img/believeart.jpg">
+		<h1 class="cover-title">My Resume <small>by Afiq Farhan</small></h1>
+	</div>
+
+<div class="page" id="toc" style="background-image: url(img/Catto.jpg); background-size: 100% 100%; 
+background-repeat: no-repeat; background-attachment: fixed; border: 2px black solid;
+	border-radius: 18px;">
+  <h2>Table of Contents</h2>
+  <ul>
+    <li><a href="#" onclick="goToPage(4)">🧬Biography</a></li>
+    <li><a href="#" onclick="goToPage(5)">🐱 Cat 2</a></li>
+    <li><a href="#" onclick="goToPage(6)">🐱 Cat 3</a></li>
+    <li><a href="#" onclick="goToPage(8)">🐱 Cat 5</a></li>
+  </ul>
+</div>
+
+
+	<div class="page">
+		<h1><u>Welcome to My Website</u></h1>
+		<p>Hello, my name is Muhammad Afiq Farhan Bin Md Aziz. I'm currently a UiTM student, pursuing my course that is Information of Management(IM110). For this assignment I've been task to make a website for my individual assignment. The website that I want to make is like a story book because I want it to be like a tale of my life in a book and to make it more unique than other members.</p>
+		<img src="img/img2.jpg">
+		<small>01</small>
+	</div>
+
+	<div class="page">
+		<h1><u>Biography</u></h1>
+		<p>This is my Biogrpah</p>
+		<small>Cat 1</small>
+	</div>
+
+	<div class="page">
+		<img src="">
+		<small>Cat 2</small>
+	</div>
+
+	<div class="page">
+		<img src="">
+		<small>Cat 3</small>
+	</div>
+
+	<div class="page">
+		<img src="">
+		<small>Cat 4</small>
+	</div>
+
+	<div class="page">
+		<img src="">
+		<small>Cat 5</small>
+	</div>
+
+	<div class="page">
+		<img src="">
+		<small>Cat 6</small>
+	</div>
+
+	<div class="hard">Testing you <small>Afiq Farhan</small></div>
+
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/turn.js"></script>
+
+<script>
+	$('.flipbook').turn({
+		width: 1000,
+		height: 600,
+		autoCenter: true
+	});
+</script>
+
+<script>
+  function goToPage(pageNum) {
+  $('.flipbook').turn('page', pageNum);
+}
+
+function goToCover() {
+    $('.flipbook').turn('page', 1);
+  }
+
+  function goToBackCover() {
+    const totalPages = $('.flipbook').turn('pages');
+    $('.flipbook').turn('page', totalPages);
+  }
+</script>
+
+<script>
+	$(function() {
+
+  $(page).on("click", ".flipbook .even", function(event) {
+     $(".flipbook").turn("previous");
+  });
+
+  $(page).on("click", " .flipbook .odd", function(event) {
+     $(".flipbook").turn("next");
+  });
+
+});
+</script>
+
+
+
+</body>
+
+</html>
