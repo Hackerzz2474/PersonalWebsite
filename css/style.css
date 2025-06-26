@@ -1,0 +1,247 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "sans-serif";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "sans-serif";
+}
+
+main {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  padding-top: 20px;
+  padding-bottom: 60px; /* space for footer */
+}
+
+
+.flipbook{
+	width: 1000px;
+	height: 600px;
+}
+
+.flipbook .hard{
+	background: #fee0be !important;
+	color: white;
+	text-shadow: 1px 1px 3px black;
+	font-weight: bold;
+	border: 2px black solid;
+	border-radius: 12px;
+}
+
+.flipbook .hard small{
+	font-style: italic;
+	font-weight: lighter;
+	opacity: 0.7;
+	font-size: 14px;
+}
+
+.flipbook .page{
+	background: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.11);
+	cursor: pointer;
+	border: 2px black solid;
+	border-radius: 18px;
+}
+
+.page img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.flipbook .page small{
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.cover-page {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+
+.cover-page img, p {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cover-title {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 24px;
+  text-shadow: 1px 1px 3px black;
+}
+
+.page p, a{
+	padding: 30px;
+  line-height: 1.6;
+  font-size: 18px;
+  text-align: justify;
+  color: #333;
+  text-decoration: none;
+}
+
+#splash{
+	position: fixed; top: 0; left: 0; z-index: 999;
+	width: 100vw; height: 100vh;
+
+	display: flex;
+	align-items: center; justify-content: center;
+
+	font-size: 24px;
+	color: #fff; background: #000;
+
+	opacity: 1;
+  transition: all 1s ease;
+}
+
+#splash.hide{
+	opacity: 0; visibility: hidden;
+	transition: all 1s
+}
+
+.nav-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.nav-buttons button {
+  background-color: #ff9966;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.nav-buttons button:hover {
+  background-color: #ff7733;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.page ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.page ul li {
+  margin-bottom: 12px; /* spacing between items */
+}
+
+.page ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.page ul li a:hover {
+  color: #ff6600;
+}
+
+header {
+  background-color: #ff9966;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 2px solid transparent;
+  padding: 8px 10px;
+}
+
+nav a:hover {
+  color: #fff;
+  border-bottom: 2px solid white;
+  background-color: #ff7733;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: #ccc;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  margin-top: 40px;
+  border-top: 3px solid #ff9966;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.page-video {
+  width: 480px;
+  height: 212px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  display: block;
+  margin: 30px auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+
+.page-video:hover {
+  transform: scale(1.02);
+}
