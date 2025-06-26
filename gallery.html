@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Gallery</title>
+	<link rel="icon" type="image/png" href="img/icon.png">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/bgm.js"></script>
+
+</head>
+
+   <header>
+        <nav class="navbar">
+            <a href="index.html">About</a>
+            <a href="education.html">Education</a>
+            <a href="hobby.html">Hobby</a>
+            <a href="contact.html">Contact</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+    </header>
+
+<body>
+
+<video autoplay muted loop playsinline id="bg-video">
+  <source src="img/catto.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<div id="splash" onclick="start()"><h3 style="text-align: center;">My Gallery<br> (Click Here)</h3></div>
+<audio id="bgm" src="audio/End.mp3" loop></audio>
+<h1 style="text-align: center;">Galleries</h1>
+
+<div class="nav-buttons">
+  <button onclick="goToCover()">📖 Go to Front Cover</button>
+  <button onclick="goToBackCover()">📘 Go to Back Cover</button>
+</div>
+
+<div class="flipbook">
+
+	<div class="hard cover-page" style="border: 2px black solid;
+	border-radius: 18px;">
+		<img src="img/believeart.jpg">
+		<h1 class="cover-title">My Gallery <small>by Afiq Farhan</small></h1>
+	</div>
+
+<div class="page" id="toc" style="background-image: url(img/Catto.jpg); background-size: 100% 100%; 
+background-repeat: no-repeat; background-attachment: fixed; border: 2px black solid;
+	border-radius: 18px;">
+  <h2>Gallery List</h2>
+  <ul>
+    <li><a href="#" onclick="goToPage(4)">My Friends</a></li>
+    <li><a href="#" onclick="goToPage(6)">My Family</a></li>
+    <li><a href="#" onclick="goToPage(8)">Favourite Car</a></li>
+    <li><a href="#" onclick="goToPage(10)">Others</a></li>
+  </ul>
+</div>
+
+
+	<div class="page">
+		<h1>The Gallery</h1>
+		<img src="img/sulam.jpeg">
+		<img src="img/sulam2.jpeg">
+		<small>SULAM Brain Burst</small>
+	</div>
+
+	<div class="page">
+		<h1><u>My Friends</u></h1>
+		<img src="img/friend1.jpeg">
+		<img src="img/friend2.jpeg">
+		<small>Best Friends Since School</small>
+	</div>
+
+	<div class="page">
+		<img src="img/friend3.jpeg">
+		<img src="img/friend4.jpeg">
+		<small>The Present Friend</small>
+	</div>
+
+	<div class="page">
+		<h1><u>My Family</u></h1>
+		<img src="img/fam1.jpeg">
+		<img src="img/fam2.jpeg">
+		<small>Mother & Father</small>
+	</div>
+
+	<div class="page">
+		<img src="img/fam3.jpeg">
+		<img src="img/fam4.jpeg">
+		<small>Whole Family</small>
+	</div>
+
+	<div class="page">
+		<h1><u>Favourite Car</u></h1>
+		<img src="img/r32.jpg">
+		<img src="img/rx7.jpg">
+		<small>Classic JDM</small>
+	</div>
+
+	<div class="page">
+		<img src="img/supra.jpg">
+		<img src="img/hellcat.jpg">
+		<small>Dream Car</small>
+	</div>
+
+	<div class="page">
+		<h1><u>Others</u></h1>
+		<img src="img/car1.jpeg">
+		<img src="img/car2.jpeg">
+		<small>Beautiful "Tiger😭"</small>
+	</div>
+
+	<div class="page">
+		<video controls class="page-video">
+			<source src="img/sulamvid.mp4" type="video/mp4">
+		</video>
+		<video controls class="page-video">
+			<source src="img/friendvid.mp4" type="video/mp4">
+		</video>
+		<small>Videos</small>
+	</div>
+
+	<div class="hard">End of the Story <small>Afiq Farhan</small></div>
+
+</div>
+
+ <footer>
+        &copy; 2025 AfiqFarhan. All rights reserved.
+ </footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/turn.js"></script>
+
+<script>
+	$('.flipbook').turn({
+		width: 1000,
+		height: 600,
+		autoCenter: true
+	});
+</script>
+
+<script>
+  function goToPage(pageNum) {
+  $('.flipbook').turn('page', pageNum);
+}
+
+function goToCover() {
+    $('.flipbook').turn('page', 1);
+  }
+
+  function goToBackCover() {
+    const totalPages = $('.flipbook').turn('pages');
+    $('.flipbook').turn('page', totalPages);
+  }
+</script>
+
+<script>
+	$(function() {
+
+  $(page).on("click", ".flipbook .even", function(event) {
+     $(".flipbook").turn("previous");
+  });
+
+  $(page).on("click", " .flipbook .odd", function(event) {
+     $(".flipbook").turn("next");
+  });
+
+});
+</script>
+
+</body>
+
+</html>
